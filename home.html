@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ニュース - トップページ</title>
+    <link rel="stylesheet" href="src/styles/base.css">
+    <link rel="stylesheet" href="src/styles/header.css">
+    <link rel="stylesheet" href="src/styles/navigation.css">
+    <link rel="stylesheet" href="src/styles/main-content.css">
+    <link rel="stylesheet" href="src/styles/sidebar.css">
+    <link rel="stylesheet" href="src/styles/footer.css">
+    <link rel="stylesheet" href="src/styles/responsive.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="header-top">
+            <div class="header-container">
+                <a href="#" class="logo">YAHOO!ニュース</a>
+                <div class="search-box">
+                    <input type="text" placeholder="キーワードを入力">
+                </div>
+                <div class="header-links">
+                    <a href="#">ログイン</a>
+                    <a href="#">新規取得</a>
+                </div>
+            </div>
+        </div>
+        <nav class="nav-bar">
+            <div class="nav-container">
+                <a href="#" class="active">トップ</a>
+                <a href="#">国内</a>
+                <a href="#">国際</a>
+                <a href="#">経済</a>
+                <a href="#">エンタメ</a>
+                <a href="#">スポーツ</a>
+                <a href="#">IT</a>
+                <a href="#">科学</a>
+                <a href="#">ライフ</a>
+                <a href="#">地域</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <div class="main-container">
+        <!-- 主要ニュース -->
+        <main class="main-news">
+            <!-- トップストーリー -->
+            <article class="top-story">
+                <div class="top-story-image">
+                    <img src="https://placehold.co/800x350/e0e0e0/666666?text=Top+News" alt="トップニュース">
+                </div>
+                <span class="category-tag">国内</span>
+                <h1>主要ニュースのタイトルがここに表示されます</h1>
+                <p>ニュースの概要や詳細情報がここに表示されます。重要なポイントや背景情報などを簡潔にまとめた文章が入ります。</p>
+                <div class="news-meta">
+                    <span>提供元 12/3(火) 14:30</span>
+                </div>
+            </article>
+
+            <!-- ニュースリスト -->
+            <div class="news-list">
+                <article class="news-item">
+                    <div class="news-thumbnail">
+                        <img src="https://placehold.co/120x80/e0e0e0/666666?text=News" alt="ニュース">
+                    </div>
+                    <div class="news-content">
+                        <h3><a href="#">二つ目の重要ニュースのタイトルがここに表示されます</a></h3>
+                        <p>ニュースの概要がここに表示されます。</p>
+                        <div class="news-meta">提供元 12/3(火) 13:45</div>
+                    </div>
+                </article>
+
+                <article class="news-item">
+                    <div class="news-thumbnail">
+                        <img src="https://placehold.co/120x80/e0e0e0/666666?text=News" alt="ニュース">
+                    </div>
+                    <div class="news-content">
+                        <h3><a href="#">三つ目のニュースタイトルがここに入ります</a></h3>
+                        <p>ニュースの要約や重要なポイントを記載します。</p>
+                        <div class="news-meta">提供元 12/3(火) 12:30</div>
+                    </div>
+                </article>
+
+                <article class="news-item">
+                    <div class="news-thumbnail">
+                        <img src="https://placehold.co/120x80/e0e0e0/666666?text=News" alt="ニュース">
+                    </div>
+                    <div class="news-content">
+                        <h3><a href="#">経済関連のニュースタイトルがここに表示されます</a></h3>
+                        <p>市場動向や企業の最新情報などを伝えます。</p>
+                        <div class="news-meta">提供元 12/3(火) 11:15</div>
+                    </div>
+                </article>
+
+                <article class="news-item">
+                    <div class="news-thumbnail">
+                        <img src="https://placehold.co/120x80/e0e0e0/666666?text=News" alt="ニュース">
+                    </div>
+                    <div class="news-content">
+                        <h3><a href="#">国際ニュースのタイトルがここに入ります</a></h3>
+                        <p>世界各地の最新情報をお届けします。</p>
+                        <div class="news-meta">提供元 12/3(火) 10:00</div>
+                    </div>
+                </article>
+
+                <article class="news-item">
+                    <div class="news-thumbnail">
+                        <img src="https://placehold.co/120x80/e0e0e0/666666?text=News" alt="ニュース">
+                    </div>
+                    <div class="news-content">
+                        <h3><a href="#">スポーツニュースのタイトルがここに表示されます</a></h3>
+                        <p>試合結果や選手の活躍などをレポートします。</p>
+                        <div class="news-meta">提供元 12/3(火) 9:30</div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!-- サイドバー -->
+        <aside class="sidebar">
+            <!-- アクセスランキング -->
+            <div class="sidebar-section">
+                <h2>アクセスランキング</h2>
+                <ol class="ranking-list">
+                    <li class="ranking-item">
+                        <span class="ranking-number">1</span>
+                        <a href="#">最も読まれているニュースのタイトルがここに表示されます</a>
+                    </li>
+                    <li class="ranking-item">
+                        <span class="ranking-number">2</span>
+                        <a href="#">二番目に人気のニュースタイトル</a>
+                    </li>
+                    <li class="ranking-item">
+                        <span class="ranking-number">3</span>
+                        <a href="#">三番目のランキングニュース</a>
+                    </li>
+                    <li class="ranking-item">
+                        <span class="ranking-number">4</span>
+                        <a href="#">四番目に注目されているニュース</a>
+                    </li>
+                    <li class="ranking-item">
+                        <span class="ranking-number">5</span>
+                        <a href="#">五番目のランキング記事</a>
+                    </li>
+                </ol>
+            </div>
+
+            <!-- 広告 -->
+            <div class="ad-section">
+                <p>広告</p>
+                <div style="height: 250px; display: flex; align-items: center; justify-content: center;">
+                    Advertisement
+                </div>
+            </div>
+
+            <!-- トピックス -->
+            <div class="sidebar-section">
+                <h2>トピックス</h2>
+                <div class="topics-grid">
+                    <div class="topic-item">
+                        <a href="#">政治</a>
+                    </div>
+                    <div class="topic-item">
+                        <a href="#">ビジネス</a>
+                    </div>
+                    <div class="topic-item">
+                        <a href="#">テクノロジー</a>
+                    </div>
+                    <div class="topic-item">
+                        <a href="#">エンタメ</a>
+                    </div>
+                    <div class="topic-item">
+                        <a href="#">スポーツ</a>
+                    </div>
+                    <div class="topic-item">
+                        <a href="#">ライフスタイル</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 広告 -->
+            <div class="ad-section">
+                <p>広告</p>
+                <div style="height: 250px; display: flex; align-items: center; justify-content: center;">
+                    Advertisement
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- フッター -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#">利用規約</a>
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">ヘルプ</a>
+                <a href="#">お問い合わせ</a>
+                <a href="#">広告掲載について</a>
+            </div>
+            <p>&copy; 2025 News Portal. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
