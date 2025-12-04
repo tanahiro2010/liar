@@ -1,4 +1,5 @@
 import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
 import Link from "next/link";
 import "@/styles/header.css";
 import "@/styles/navigation.css";
@@ -16,9 +17,12 @@ const navigationLinks = [
 ];
 
 export default async function Header() {
-    const headersList = await headers();
+    const [headersList, session] = await Promise.all([
+        headers(),
+        auth.api.getSession(),
+    ]);
     const pathname = headersList.get("x-pathname") || "/";
-    const isAuthenticated = headersList.get("x-is-authenticated") === "true";
+    const isAuthenticated = session?.user ? true : false;
 
     return (
         <header>
