@@ -1,17 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import GoogleAdsense from "@/components/utils/adsence";
+import Header from "@/components/layout/header";
 import "@/styles/globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import "@/styles/base.css"
 
 export const metadata: Metadata = {
   title: {
@@ -84,6 +76,18 @@ export const metadata: Metadata = {
   category: "entertainment",
 };
 
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -99,9 +103,13 @@ export default function RootLayout({
         ></script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        { children }
+        <Header />
 
-        <GoogleAdsense 
+        <div className="mt-10">
+          { children }
+        </div>
+
+        <GoogleAdsense
           client="ca-pub-xxxxxxxxxxxxxxxx"
           slot="xxxxxxxxxx"
         />
