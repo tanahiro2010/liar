@@ -1,0 +1,33 @@
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-box {
+        margin: 10px 0;
+        max-width: 100%;
+    }
+
+    .nav-container {
+        gap: 15px;
+    }
+
+    .topics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-item {
+        flex-direction: column;
+    }
+
+    .news-thumbnail {
+        width: 100%;
+        height: 200px;
+    }
+}

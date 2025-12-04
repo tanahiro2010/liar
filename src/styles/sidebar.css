@@ -1,0 +1,87 @@
+/* サイドバー */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-section {
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    padding: 20px;
+}
+
+.sidebar-section h2 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ff0033;
+}
+
+.ranking-list {
+    list-style: none;
+}
+
+.ranking-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.ranking-item:last-child {
+    border-bottom: none;
+}
+
+.ranking-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff0033;
+    width: 25px;
+    flex-shrink: 0;
+}
+
+.ranking-item a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.ranking-item a:hover {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+/* トピックス */
+.topics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.topic-item {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.topic-item a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.topic-item a:hover {
+    text-decoration: underline;
+}
+
+/* 広告エリア */
+.ad-section {
+    background-color: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    padding: 20px;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+}
