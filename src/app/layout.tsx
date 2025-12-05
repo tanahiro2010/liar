@@ -97,17 +97,17 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXX"
-          crossOrigin="anonymous"
-        ></script>
+        <script 
+          async 
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID}`}
+          crossOrigin="anonymous" 
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
 
         <div className="mt-10">
-          { children }
+          {children}
         </div>
 
         <GoogleAdsense
