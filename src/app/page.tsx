@@ -1,44 +1,21 @@
-import { TopNewsCard } from "@/components/layout/top-news";
+import { TopNewsItemCard } from "@/components/layout/top-news";
+import GoogleAdsense from "@/components/utils/adsence";
 import "@/styles/main-content.css";
 import "@/styles/sidebar.css";
 
 export default function Home() {
   return (
     <div className="main-container">
-      <TopNewsCard />
+      <TopNewsItemCard />
       
       <aside className="sidebar">
-        
-        <div className="sidebar-section">
-          <h2>アクセスランキング</h2>
-          <ol className="ranking-list">
-            <li className="ranking-item">
-              <span className="ranking-number">1</span>
-              <a href="#">最も読まれているニュースのタイトルがここに表示されます</a>
-            </li>
-            <li className="ranking-item">
-              <span className="ranking-number">2</span>
-              <a href="#">二番目に人気のニュースタイトル</a>
-            </li>
-            <li className="ranking-item">
-              <span className="ranking-number">3</span>
-              <a href="#">三番目のランキングニュース</a>
-            </li>
-            <li className="ranking-item">
-              <span className="ranking-number">4</span>
-              <a href="#">四番目に注目されているニュース</a>
-            </li>
-            <li className="ranking-item">
-              <span className="ranking-number">5</span>
-              <a href="#">五番目のランキング記事</a>
-            </li>
-          </ol>
-        </div>
-
         <div className="ad-section">
           <p>広告</p>
           <div style={{ height: 250, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            Advertisement
+            <GoogleAdsense 
+              client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || "ca-pub-xxxxxxxxxx"}
+              slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_ID || "9219672015"}
+            />
           </div>
         </div>
 
