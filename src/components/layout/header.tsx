@@ -17,10 +17,8 @@ const navigationLinks = [
 ];
 
 export default async function Header() {
-    const [headersList, session] = await Promise.all([
-        headers(),
-        auth.api.getSession(),
-    ]);
+    const headersList = await headers();
+    const session = await auth.api.getSession({ headers: headersList });
     const pathname = headersList.get("x-pathname") || "/";
     const isAuthenticated = session?.user ? true : false;
 
