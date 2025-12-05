@@ -3,7 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import GoogleAdsense from "@/components/utils/adsence";
 import Header from "@/components/layout/header";
 import "@/styles/globals.css";
-import "@/styles/base.css"
+import "@/styles/base.css";
+import "@/styles/responsive.css";
 
 export const metadata: Metadata = {
   title: {
