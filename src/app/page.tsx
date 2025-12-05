@@ -12,10 +12,7 @@ export default function Home() {
         <div className="ad-section">
           <p>広告</p>
           <div style={{ height: 250, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <GoogleAdsense 
-              client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID || "ca-pub-xxxxxxxxxx"}
-              slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_ID || "9219672015"}
-            />
+            <GoogleAdsense />
           </div>
         </div>
 
@@ -46,7 +43,7 @@ export default function Home() {
         <div className="ad-section">
           <p>広告</p>
           <div style={{ height: 250, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            Advertisement
+            <GoogleAdsense />
           </div>
         </div>
       </aside>
