@@ -33,7 +33,7 @@ export default async function Header() {
                     <div className="header-links">
                         {isAuthenticated ? (
                             <>
-                                <a href="/profile">マイページ</a>
+                                <a href="/mypage">マイページ</a>
                                 <a href="/auth/logout">ログアウト</a>
                             </>
                         ) : (
