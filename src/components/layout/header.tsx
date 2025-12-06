@@ -26,20 +26,20 @@ export default async function Header() {
         <header>
             <div className="header-top">
                 <div className="header-container">
-                    <a href="#" className="logo">Lair News!</a>
+                    <Link href="#" className="logo">Lair News!</Link>
                     <div className="search-box">
                         <input type="text" placeholder="キーワードを入力" />
                     </div>
                     <div className="header-links">
                         {isAuthenticated ? (
                             <>
-                                <a href="/mypage">マイページ</a>
-                                <a href="/auth/logout">ログアウト</a>
+                                <Link href="/mypage">マイページ</Link>
+                                <Link href="/auth/logout">ログアウト</Link>
                             </>
                         ) : (
                             <>
-                                <a href="/auth/login">ログイン</a>
-                                <a href="/auth/register">新規取得</a>
+                                <Link href="/auth/login">ログイン</Link>
+                                <Link href="/auth/register">新規取得</Link>
                             </>
                         )}
 

@@ -1,4 +1,5 @@
 import { TopNewsItemCard } from "@/components/layout/top-news";
+import Link from "next/link";
 import GoogleAdsense from "@/components/utils/adsence";
 import "@/styles/main-content.css";
 import "@/styles/sidebar.css";
@@ -20,22 +21,22 @@ export default function Home() {
           <h2>トピックス</h2>
           <div className="topics-grid">
             <div className="topic-item">
-              <a href="#">政治</a>
+              <Link href="#">政治</Link>
             </div>
             <div className="topic-item">
-              <a href="#">ビジネス</a>
+              <Link href="#">ビジネス</Link>
             </div>
             <div className="topic-item">
-              <a href="#">テクノロジー</a>
+              <Link href="#">テクノロジー</Link>
             </div>
             <div className="topic-item">
-              <a href="#">エンタメ</a>
+              <Link href="#">エンタメ</Link>
             </div>
             <div className="topic-item">
-              <a href="#">スポーツ</a>
+              <Link href="#">スポーツ</Link>
             </div>
             <div className="topic-item">
-              <a href="#">ライフスタイル</a>
+              <Link href="#">ライフスタイル</Link>
             </div>
           </div>
         </div>
