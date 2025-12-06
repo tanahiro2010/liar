@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { AutoReload } from "@/components/utils/auto-reload";
 import GoogleAdsense from "@/components/utils/adsence";
 import Header from "@/components/layout/header";
 import "@/styles/globals.css";
@@ -110,10 +111,8 @@ export default function RootLayout({
           {children}
         </div>
 
-        <GoogleAdsense
-          client="ca-pub-xxxxxxxxxxxxxxxx"
-          slot="xxxxxxxxxx"
-        />
+        <GoogleAdsense />
+        <AutoReload />
       </body>
     </html>
   );
