@@ -29,7 +29,7 @@ const POST = ((req: NextRequest) => withAuth(req, async (auth) => {
         data: {
             title,
             content,
-            category,
+            category: { connect: { id: category } },
             slug,
             author: { connect: { id: auth.user.id } },
             isAllowed: false,
