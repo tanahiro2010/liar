@@ -14,6 +14,7 @@ const navigationLinks = [
     { name: "科学", slug: "science" },
     { name: "ライフ", slug: "life" },
     { name: "地域", slug: "local" },
+    { name: "その他", slug: "others" },
 ];
 
 export default async function Header() {
