@@ -7,7 +7,7 @@ interface ArticleProps {
     params: Promise<{ id: string }>;
 }
 
-export const GET = (async ({ params }: ArticleProps) => {
+export const GET = (async (_: NextRequest, { params }: ArticleProps) => {
     const { id } = await params;
     const article = await prisma.article.findUnique({
         where: { id },
