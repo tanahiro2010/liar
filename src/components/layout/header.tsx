@@ -26,7 +26,7 @@ export default async function Header() {
         <header>
             <div className="header-top">
                 <div className="header-container">
-                    <Link href="#" className="logo">Lair News!</Link>
+                    <Link href="/" className="logo">Liar News!</Link>
                     <div className="search-box">
                         <input type="text" placeholder="キーワードを入力" />
                     </div>
