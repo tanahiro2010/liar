@@ -97,7 +97,7 @@ export default async function Mypage() {
                     </div>
                     <div className="empty-message">
                         まだ記事がありません。<br />
-                        <Link href="/articles/new">最初の記事を書いてみましょう！</Link>
+                        <Link href="/mypage/articles/new">最初の記事を書いてみましょう！</Link>
                     </div>
                 </div>
             </main>
@@ -109,7 +109,7 @@ export default async function Mypage() {
                     <h3 className="menu-section-title">コンテンツ管理</h3>
                     <ul className="menu-list">
                         <li className="menu-item">
-                            <Link href="/articles/new" className="menu-link">
+                            <Link href="/mypage/articles/new" className="menu-link">
                                 <span className="menu-icon">✏️</span>
                                 記事を書く
                             </Link>
