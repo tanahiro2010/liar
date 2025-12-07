@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { StatCard } from "@/components/ui/stat";
 import { formatDateShort } from "@/utils/date";
 import Link from "next/link";
 import "@/styles/my-articles.css";
@@ -55,22 +56,10 @@ export default async function MyArticlePage({ searchParams }: MyArticlePageProps
 
             {/* 統計カード */}
             <div className="stats-row">
-                <div className="stat-card">
-                    <span className="stat-card-number">{articles.length}</span>
-                    <span className="stat-card-label">総記事数</span>
-                </div>
-                <div className="stat-card">
-                    <span className="stat-card-number">{publishedCount}</span>
-                    <span className="stat-card-label">公開中</span>
-                </div>
-                <div className="stat-card">
-                    <span className="stat-card-number">{draftCount}</span>
-                    <span className="stat-card-label">下書き</span>
-                </div>
-                <div className="stat-card">
-                    <span className="stat-card-number">{totalViews.toLocaleString()}</span>
-                    <span className="stat-card-label">総閲覧数</span>
-                </div>
+                <StatCard number={articles.length} label="総記事数" />
+                <StatCard number={publishedCount} label="公開中" />
+                <StatCard number={draftCount} label="下書き" />
+                <StatCard number={totalViews} label="総閲覧数" />
             </div>
 
             {/* フィルタータブ */}
@@ -132,7 +121,7 @@ export default async function MyArticlePage({ searchParams }: MyArticlePageProps
                                     {formatDateShort(article.updatedAt)}
                                 </div>
                                 <div className="article-actions">
-                                    <Link href={`/articles/${article.id}/edit`} className="action-btn edit">
+                                    <Link href={`/mypage/articles/${article.id}`} className="action-btn edit">
                                         編集
                                     </Link>
                                 </div>

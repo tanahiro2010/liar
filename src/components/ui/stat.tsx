@@ -6,3 +6,12 @@ export function StatItem({ number, label }: { number: number; label: string }) {
         </div>
     );
 }
+
+export function StatCard({ number, label }: { number: number; label: string }) {
+    return (
+        <div className="stat-card">
+            <span className="stat-card-number">{number}</span>
+            <span className="stat-card-label">{label}</span>
+        </div>
+    );
+}
