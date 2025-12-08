@@ -1,4 +1,5 @@
 import { headers } from "next/headers";
+import { prisma } from "@/lib/prisma";
 import { auth } from "@/lib/auth";
 import { ActionLink } from "@/components/ui/link";
 import { StatItem } from "@/components/ui/stat";
@@ -43,8 +44,10 @@ export default async function Mypage() {
     const session = await auth.api.getSession({
         headers: await headers(),
     });
-
     const user = session?.user;
+    const articles = await prisma.article.count({
+        where: { authorId: user?.id || "", published: true },
+    });
 
     return (
         <div className="mypage-container">
@@ -118,7 +121,7 @@ export default async function Mypage() {
                             <Link href="/mypage/articles" className="menu-link">
                                 <span className="menu-icon">📄</span>
                                 投稿した記事
-                                <span className="menu-badge">0</span>
+                                <span className="menu-badge">{articles}</span>
                             </Link>
                         </li>
                         <li className="menu-item">
