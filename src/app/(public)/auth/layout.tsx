@@ -7,5 +7,5 @@ export default async function AuthLayout({ children }: { children: React.ReactNo
     if (auth.data) {
         redirect("/dashboard");
     }
-    return <>{children}</>;
+    return <>{ children }</>;
 }

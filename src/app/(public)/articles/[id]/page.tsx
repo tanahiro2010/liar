@@ -84,44 +84,7 @@ export default async function ArticlePage({ params }: Props) {
             </div>
         );
     }
-
-    // 関連記事を取得（同じカテゴリーの記事）
-    const relatedArticles = await prisma.article.findMany({
-        where: {
-            categoryId: article.categoryId,
-            published: true,
-            id: { not: article.id },
-        },
-        select: {
-            id: true,
-            slug: true,
-            title: true,
-            createdAt: true,
-        },
-        orderBy: {
-            createdAt: "desc",
-        },
-        take: 5,
-    });
-
-    // 最新記事を取得
-    const latestArticles = await prisma.article.findMany({
-        where: {
-            published: true,
-            id: { not: article.id },
-        },
-        select: {
-            id: true,
-            slug: true,
-            title: true,
-            createdAt: true,
-        },
-        orderBy: {
-            createdAt: "desc",
-        },
-        take: 5,
-    });
-
+    
     const categoryColor = article.category?.name 
         ? categoryColors[article.category.name.toLowerCase()] || "#666"
         : "#666";
