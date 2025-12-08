@@ -5,7 +5,10 @@ import "@/styles/sidebar.css";
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
     return (
         <div className="main-container">
-            {children}
+            <div className="main">
+                {children}
+            </div>
+
 
             <Sidebar />
         </div>
