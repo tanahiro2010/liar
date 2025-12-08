@@ -14,28 +14,31 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
     
 
-    const [category, articles, totalCount] = await prisma.$transaction([
+    const [category, totalCount] = await prisma.$transaction([
         prisma.category.findUnique({
             where: { id: id.toUpperCase() },
-        }),
-        prisma.article.findMany({
-            where: {
-                published: true,
-                isAllowed: false,
-                categoryId: id,
-            },
-            orderBy: {
-                createdAt: "desc",
-            },
             select: {
                 id: true,
-                title: true,
-                excerpt: true,
-                createdAt: true,
-                category: false
-            },
-            take: perPage,
-            skip: (currentPage - 1) * perPage,
+                name: true,
+                description: true,
+                articles: {
+                    where: {
+                        published: true,
+                    },
+                    orderBy: {
+                        updatedAt: "desc",
+                    },
+                    take: perPage,
+                    skip: (currentPage - 1) * perPage,
+                    select: {
+                        id: true,
+                        title: true,
+                        excerpt: true,
+                        createdAt: true,
+                        category: false
+                    }
+                }
+            }
         }),
         prisma.article.count({
             where: {
@@ -55,7 +58,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
             title={`${category?.name} - ニュース一覧`}
             subtitle="最新の記事を新着順に表示しています。"
             baseUrl={`/category/${id}`}
-            articles={articles}
+            articles={category.articles}
             currentPage={currentPage}
             totalPages={Math.max(1, Math.ceil(totalCount / perPage))}
         />
