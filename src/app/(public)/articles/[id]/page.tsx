@@ -41,7 +41,12 @@ export default async function ArticlePage({ params }: Props) {
                     image: true,
                 },
             },
-            category: true,
+            category: {
+                select: {
+                    id: true,
+                    name: true
+                }
+            }
         },
     });
 
@@ -98,7 +103,7 @@ export default async function ArticlePage({ params }: Props) {
                     <span className="breadcrumb-separator">›</span>
                     {article.category && (
                         <>
-                            <Link href={`/categories/${article.category.name.toLowerCase()}`}>
+                            <Link href={`/category/${article.category.id.toLowerCase()}`}>
                                 {article.category.name}
                             </Link>
                             <span className="breadcrumb-separator">›</span>
@@ -114,7 +119,7 @@ export default async function ArticlePage({ params }: Props) {
                             className="article-category-tag"
                             style={{ backgroundColor: categoryColor }}
                         >
-                            {article.category.name}
+                            { article.category.name }
                         </span>
                     )}
                     <h1 className="article-title">{article.title}</h1>
