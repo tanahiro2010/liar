@@ -2,7 +2,6 @@ import { NextRequest } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { withAuth } from "@/lib/middleware";
 import { ok, created } from "@/lib/helpers/response";
-import { randomSlug } from "@/utils/random";
 
 const GET = (async (req: NextRequest) => {
     const page = req.nextUrl.searchParams.get("page");
@@ -24,13 +23,11 @@ const GET = (async (req: NextRequest) => {
 
 const POST = ((req: NextRequest) => withAuth(req, async (auth) => {
     const { title, content, category } = await req.json();
-    const slug = randomSlug(8);
     const newArticle = await prisma.article.create({
         data: {
             title,
             content,
             category: { connect: { id: category } },
-            slug,
             author: { connect: { id: auth.user.id } },
             isAllowed: false,
             published: false,
