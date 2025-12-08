@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { formatDate, timeAgo } from "@/utils/date";
 import Image from "next/image";
@@ -9,6 +10,39 @@ interface Props {
     params: Promise<{
         id: string;
     }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { id } = await params;
+    const article = await prisma.article.findUnique({
+        where: { id },
+        select: {
+            title: true,
+            excerpt: true,
+            content: true
+        },
+    });
+    if (!article) {
+        return {
+            title: "記事が見つかりません - ニュース記事",
+            description: "指定された記事は存在しません。",
+        };
+    }
+
+    return {
+        title: article.title,
+        description: article.excerpt || "ニュース記事の詳細ページです。",
+        openGraph: {
+            title: article.title,
+            description: article.excerpt || "ニュース記事の詳細ページです。",
+            images: [{
+                url: `/api/og?title=${encodeURIComponent(article.title)}&description=${encodeURIComponent(article.content ? article.content.substring(0, 100) : "ニュース記事の詳細ページです。")}`,
+                width: 1200,
+                height: 630,
+                alt: article.title
+            }]
+        }
+    };
 }
 
 // カテゴリーの色マッピング
