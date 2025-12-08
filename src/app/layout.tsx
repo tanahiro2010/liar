@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AutoReload } from "@/components/utils/auto-reload";
-import GoogleAdsense from "@/components/utils/adsence";
 import Header from "@/components/layout/header";
+import GoogleAdsense from "@/components/utils/adsence";
 import "@/styles/globals.css";
 import "@/styles/base.css";
 import "@/styles/responsive.css";
@@ -98,17 +98,17 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
-        <script 
-          async 
+        <script
+          async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_CLIENT_ID}`}
-          crossOrigin="anonymous" 
+          crossOrigin="anonymous"
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Header />
 
         <div className="mt-10">
-          {children}
+          { children }
         </div>
 
         <GoogleAdsense />
