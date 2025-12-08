@@ -36,12 +36,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title: article.title,
             description: article.content ? article.content.substring(0, 100) : "ニュース記事の詳細ページです。",
             images: [{
-                url: `/api/og?title=${encodeURIComponent(article.title)}&content=${encodeURIComponent(article.content ? article.content.substring(0, 100) : "ニュース記事の詳細ページです。")}`,
+                url: `${process.env.NEXT_PUBLIC_APP_URL}/api/og?title=${encodeURIComponent(article.title)}&content=${encodeURIComponent(article.content ? article.content.substring(0, 100) : "ニュース記事の詳細ページです。")}`,
                 width: 1200,
                 height: 630,
                 alt: article.title
             }]
         }
+        
     };
 }
 
