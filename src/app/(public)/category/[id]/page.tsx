@@ -1,27 +1,28 @@
 import { prisma } from "@/lib/prisma";
 import { ArticleList } from "@/components/layout/articles";
-import { formatDate } from "@/utils/date";
-import Link from "next/link";
+import { redirect } from "next/navigation";
 
-import "@/styles/article-view.css";
-
-interface Props {
-    searchParams: Promise<{
-        page?: string | undefined;
-    }>;
+interface CategoryPageProps {
+    params: Promise<{ id: string }>;
+    searchParams: Promise<{ page?: string | undefined; }>;
 }
 
-export default async function ArticlesPage({ searchParams }: Props) {
-    const { page } = await searchParams;
+export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
+    const [{ id }, { page }] = await Promise.all([params, searchParams]);
     const currentPage = page ? parseInt(page, 10) : 1;
-
     const perPage = 20;
 
-    const [articles, totalCount] = await prisma.$transaction([
+    
+
+    const [category, articles, totalCount] = await prisma.$transaction([
+        prisma.category.findUnique({
+            where: { id: id.toUpperCase() },
+        }),
         prisma.article.findMany({
             where: {
                 published: true,
                 isAllowed: false,
+                categoryId: id,
             },
             orderBy: {
                 createdAt: "desc",
@@ -31,6 +32,7 @@ export default async function ArticlesPage({ searchParams }: Props) {
                 title: true,
                 excerpt: true,
                 createdAt: true,
+                category: false
             },
             take: perPage,
             skip: (currentPage - 1) * perPage,
@@ -39,20 +41,23 @@ export default async function ArticlesPage({ searchParams }: Props) {
             where: {
                 published: true,
                 isAllowed: false,
+                categoryId: id,
             },
         }),
     ]);
 
-    const totalPages = Math.max(1, Math.ceil(totalCount / perPage));
+    if (!category) {
+        redirect("/category");
+    }
 
     return (
         <ArticleList
-            title="ニュース一覧"
+            title={`${category?.name} - ニュース一覧`}
             subtitle="最新の記事を新着順に表示しています。"
-            baseUrl="/articles"
+            baseUrl={`/category/${id}`}
             articles={articles}
             currentPage={currentPage}
-            totalPages={totalPages}
+            totalPages={Math.max(1, Math.ceil(totalCount / perPage))}
         />
-    );
+    )
 }
