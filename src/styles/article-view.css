@@ -15,6 +15,166 @@
 	border-top: 3px solid #ff0033;
 }
 
+/* 一覧ページ */
+.article-list-page {
+	width: 100%;
+	margin: 0;
+	padding: 0 0 32px;
+	background-color: #f5f5f5;
+}
+
+.article-list-main {
+	background-color: #ffffff;
+	padding: 16px 20px 24px;
+	border: 1px solid #e5e5e5;
+}
+
+/* カテゴリ一覧 */
+.category-page {
+	max-width: 980px;
+	margin: 0 auto;
+	padding: 0 0 32px;
+	background-color: #f5f5f5;
+}
+
+.category-main {
+	background-color: #ffffff;
+	padding: 16px 20px 24px;
+	border: 1px solid #e5e5e5;
+}
+
+.category-header {
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 8px;
+	margin-bottom: 12px;
+}
+
+.category-title {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 4px;
+}
+
+.category-subtitle {
+	font-size: 12px;
+	color: #666;
+}
+
+.category-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.category-list-item {
+	padding: 10px 0;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.category-list-item-name {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.category-list-item-name a {
+	color: #0044cc;
+	text-decoration: none;
+}
+
+.category-list-item-name a:hover {
+	text-decoration: underline;
+}
+
+.category-list-item-description {
+	font-size: 13px;
+	color: #444;
+}
+
+.article-list-header {
+	border-bottom: 1px solid #e5e5e5;
+	padding-bottom: 8px;
+	margin-bottom: 12px;
+}
+
+.article-list-title {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 4px;
+}
+
+.article-list-sub {
+	font-size: 12px;
+	color: #666;
+}
+
+.article-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.article-list-item {
+	padding: 10px 0;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.article-list-item-title {
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 4px;
+}
+
+.article-list-item-title a {
+	color: #0044cc;
+	text-decoration: none;
+}
+
+.article-list-item-title a:hover {
+	text-decoration: underline;
+}
+
+.article-list-meta {
+	font-size: 11px;
+	color: #888;
+	margin-bottom: 4px;
+}
+
+.article-list-excerpt {
+	font-size: 13px;
+	color: #444;
+}
+
+.article-list-pagination {
+	margin-top: 12px;
+	font-size: 12px;
+}
+
+.pagination-inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-top: 1px solid #e5e5e5;
+	padding-top: 8px;
+}
+
+.pagination-status {
+	color: #666;
+}
+
+.pagination-links {
+	display: flex;
+	gap: 12px;
+}
+
+.pagination-link {
+	color: #0044cc;
+	text-decoration: none;
+}
+
+.pagination-link:hover {
+	text-decoration: underline;
+}
+
 /* パンくず */
 .breadcrumb {
 	font-size: 12px;
