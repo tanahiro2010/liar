@@ -26,7 +26,7 @@ export default async function CategoryPage() {
                     {categories.map((category) => (
                         <li key={category.id} className="category-list-item">
                             <h2 className="category-list-item-name">
-                                <Link href={`/articles?page=1&category=${category.id}`}>
+                                <Link href={`/category/${category.id}`}>
                                     {category.name}
                                 </Link>
                             </h2>
