@@ -1,5 +1,6 @@
 import { formatDate } from "@/utils/date";
 import Link from "next/link";
+import "@/styles/article-view.css";
 
 interface ArticleProps {
     title: string;
