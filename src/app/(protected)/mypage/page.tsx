@@ -122,7 +122,7 @@ export default async function Mypage() {
                             </Link>
                         </li>
                         <li className="menu-item">
-                            <Link href="/mypage/drafts" className="menu-link">
+                            <Link href="/mypage/articles?status=draft" className="menu-link">
                                 <span className="menu-icon">📝</span>
                                 下書き
                             </Link>

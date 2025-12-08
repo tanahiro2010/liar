@@ -54,10 +54,7 @@ export default function Login() {
                 </button>
 
                 <div className="login-signup-link">
-                    アカウントをお持ちでない方は
-                    <Link href="/auth/signup">
-                        新規登録
-                    </Link>
+                    アカウントをお持ちでない方も、ログインボタンを押すだけで自動的にアカウントが作成されます。
                 </div>
             </div>
         </div>

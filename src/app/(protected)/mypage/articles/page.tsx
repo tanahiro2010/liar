@@ -101,7 +101,7 @@ export default async function MyArticlePage({ searchParams }: MyArticlePageProps
                                         )}
                                     </div>
                                     <div className="article-details">
-                                        <Link href={`/articles/${article.slug}`} className="article-title-link">
+                                        <Link href={`/articles/${article.id}`} className="article-title-link">
                                             {article.title}
                                         </Link>
                                         <div className="article-meta">
