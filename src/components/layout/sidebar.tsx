@@ -1,7 +1,20 @@
+import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import GoogleAdsense from "@/components/utils/adsence";
 
-export default function Sidebar() {
+export default async function Sidebar() {
+    const categories = await prisma.category.findMany({
+        orderBy: {
+            articles: {
+                _count: "desc",
+            }
+        },
+        take: 6,
+        select: {
+            id: true,
+            name: true,
+        }
+    });
     return (
         <aside className="sidebar">
             <div className="ad-section">
@@ -14,24 +27,11 @@ export default function Sidebar() {
             <div className="sidebar-section">
                 <h2>トピックス</h2>
                 <div className="topics-grid">
-                    <div className="topic-item">
-                        <Link href="#">政治</Link>
-                    </div>
-                    <div className="topic-item">
-                        <Link href="#">ビジネス</Link>
-                    </div>
-                    <div className="topic-item">
-                        <Link href="#">テクノロジー</Link>
-                    </div>
-                    <div className="topic-item">
-                        <Link href="#">エンタメ</Link>
-                    </div>
-                    <div className="topic-item">
-                        <Link href="#">スポーツ</Link>
-                    </div>
-                    <div className="topic-item">
-                        <Link href="#">ライフスタイル</Link>
-                    </div>
+                    {categories.map((category) => (
+                        <div key={category.id} className="topic-item">
+                            <Link href={`/category/${category.id.toLowerCase()}`}>{category.name}</Link>
+                        </div>
+                    ))}
                 </div>
             </div>
 
