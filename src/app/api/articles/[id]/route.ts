@@ -26,6 +26,7 @@ export const PUT = (async (req: NextRequest, context: ArticleProps) => withAuth(
     }
 
     const { title, content, published } = await req.json();
+    const now = new Date();
 
     const updatedArticle = await prisma.article.updateMany({
         where: {
@@ -35,6 +36,7 @@ export const PUT = (async (req: NextRequest, context: ArticleProps) => withAuth(
         data: {
             title,
             content,
+            updatedAt: now,
             published,
         },
     });
