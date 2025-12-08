@@ -8,6 +8,10 @@
     gap: 20px;
 }
 
+.main {
+    width: 100%;
+}
+
 /* 主要ニュース */
 .main-news {
     background-color: #fff;
