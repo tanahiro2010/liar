@@ -34,9 +34,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: article.excerpt || "ニュース記事の詳細ページです。",
         openGraph: {
             title: article.title,
-            description: article.excerpt || "ニュース記事の詳細ページです。",
+            description: article.content ? article.content.substring(0, 100) : "ニュース記事の詳細ページです。",
             images: [{
-                url: `/api/og?title=${encodeURIComponent(article.title)}&description=${encodeURIComponent(article.content ? article.content.substring(0, 100) : "ニュース記事の詳細ページです。")}`,
+                url: `/api/og?title=${encodeURIComponent(article.title)}&content=${encodeURIComponent(article.content ? article.content.substring(0, 100) : "ニュース記事の詳細ページです。")}`,
                 width: 1200,
                 height: 630,
                 alt: article.title
