@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "Liar",
     images: [
       {
-        url: "/og-image.png",
+        url: "/api/og",
         width: 1200,
         height: 630,
         alt: "Liar - フェイクニュースプラットフォーム",

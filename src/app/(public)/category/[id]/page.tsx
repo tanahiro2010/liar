@@ -7,6 +7,29 @@ interface CategoryPageProps {
     searchParams: Promise<{ page?: string | undefined; }>;
 }
 
+export async function generateMetadata({ params }: CategoryPageProps) {
+    const { id } = await params;
+    const category = await prisma.category.findUnique({
+        where: { id: id.toUpperCase() },
+        select: {
+            name: true,
+            description: true,
+        },
+    });
+
+    if (!category) {
+        return {
+            title: "カテゴリーが見つかりません - ニュース一覧",
+            description: "指定されたカテゴリーは存在しません。",
+        };
+    }
+    return {
+        title: `${category.name} - ニュース一覧`,
+        description: category.description || `${category.name}に関連する最新ニュースをお届けします。`,
+        
+    };
+}
+
 export default async function CategoryPage({ params, searchParams }: CategoryPageProps) {
     const [{ id }, { page }] = await Promise.all([params, searchParams]);
     const currentPage = page ? parseInt(page, 10) : 1;
