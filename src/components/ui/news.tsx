@@ -16,7 +16,7 @@ export function TopNewsItem({ title, category, url, imageUrl, summary, createdAt
         <article className="top-story">
             <div className="top-story-image">
                 <Image
-                    src="https://placehold.co/800x350.png?text=Top+News&bg=e0e0e0&fc=666666"
+                    src={imageUrl}
                     alt="トップニュース"
                     width={800}
                     height={350}
@@ -24,8 +24,11 @@ export function TopNewsItem({ title, category, url, imageUrl, summary, createdAt
                     priority
                 />
             </div>
-            <span className="category-tag">{category ?? "国内"}</span>
-            <h1>{title}</h1>
+            <span className="category-tag">
+                <Link href={category ? `/categories/${category}` : "/categories"}>{category ?? "国内"}</Link></span>
+            <h1>
+                <Link href={url}>{title}</Link>
+            </h1>
             <p>{summary}</p>
             <div className="news-meta">
                 <span>提供元 {createdAt ?? "不明"}</span>

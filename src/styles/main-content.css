@@ -59,6 +59,16 @@
     margin-bottom: 10px;
 }
 
+.top-story a {
+    color: #333;
+    text-decoration: none;
+}
+
+.top-story a:hover {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
 .news-meta {
     font-size: 12px;
     color: #999;

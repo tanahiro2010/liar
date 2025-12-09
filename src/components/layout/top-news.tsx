@@ -1,4 +1,7 @@
+import { prisma } from "@/lib/prisma";
 import { TopNewsItem, SubNewsItem } from "../ui/news";
+import { formatDateShort } from "@/utils/date";
+import { _length } from "better-auth";
 
 interface TopNewsItemItem {
     title: string;
@@ -61,10 +64,51 @@ const TopNewsItemItems: TopNewsItemItem[] = [
 ]
 
 export async function TopNewsItemCard() {
-    const date = new Date();
-    const topNews = TopNewsItemItems[0];
-    const subNewsItems: TopNewsItemItem[] = TopNewsItemItems.slice(1);
-    
+    const articles = await prisma.article.findMany({
+        where: { published: true },
+        orderBy: { createdAt: "desc" },
+        select: {
+            id: true,
+            title: true,
+            category: {
+                select: {
+                    name: true
+                }
+            },
+            content: true,
+            createdAt: true,
+            author: {
+                select: {
+                    name: true
+                }
+            }
+        },
+        take: 7,
+    });
+    if (articles.length === 0) {
+        return null;
+    }
+    const topNews = {
+        title: articles[0].title,
+        url: `/articles/${articles[0].id}`,
+        imageUrl: `/api/og/news?title=${encodeURIComponent(articles[0].title)}&author=${encodeURIComponent(articles[0].author?.name || "匿名")}`,
+        category: articles[0].category?.name,
+        summary: articles[0].content.slice(0, 100) + "...",
+        createdAt: formatDateShort(articles[0].createdAt),
+        author: articles[0].author?.name || "匿名"
+    }
+    const subNewsItems: TopNewsItemItem[] = articles.slice(1).map((article) => {
+        return {
+            title: article.title,
+            url: `/articles/${article.id}`,
+            imageUrl: `/api/og/news?title=${encodeURIComponent(article.title)}&author=${encodeURIComponent(article.author?.name || "匿名")}`,
+            category: article.category?.name,
+            summary: article.content.slice(0, 100) + "...",
+            createdAt: formatDateShort(article.createdAt),
+            author: article.author?.name || "匿名"
+        }
+    });
+
     return (
         <main className="main-news">
             <TopNewsItem
