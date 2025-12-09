@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { TopNewsItem, SubNewsItem } from "../ui/news";
 import { formatDateShort } from "@/utils/date";
-import { _length } from "better-auth";
+import { randomPickMultiple } from "@/utils/random";
 
 interface TopNewsItemItem {
     title: string;
@@ -88,16 +88,17 @@ export async function TopNewsItemCard() {
     if (articles.length === 0) {
         return null;
     }
+    const sortedArticles = randomPickMultiple(articles, 7);
     const topNews = {
-        title: articles[0].title,
-        url: `/articles/${articles[0].id}`,
-        imageUrl: `/api/og/news?title=${encodeURIComponent(articles[0].title)}&author=${encodeURIComponent(articles[0].author?.name || "匿名")}`,
-        category: articles[0].category?.name,
-        summary: articles[0].content.slice(0, 100) + "...",
-        createdAt: formatDateShort(articles[0].createdAt),
-        author: articles[0].author?.name || "匿名"
+        title: sortedArticles[0].title,
+        url: `/articles/${sortedArticles[0].id}`,
+        imageUrl: `/api/og/news?title=${encodeURIComponent(sortedArticles[0].title)}&author=${encodeURIComponent(sortedArticles[0].author?.name || "匿名")}`,
+        category: sortedArticles[0].category?.name,
+        summary: sortedArticles[0].content.slice(0, 100) + "...",
+        createdAt: formatDateShort(sortedArticles[0].createdAt),
+        author: sortedArticles[0].author?.name || "匿名"
     }
-    const subNewsItems: TopNewsItemItem[] = articles.slice(1).map((article) => {
+    const subNewsItems: TopNewsItemItem[] = sortedArticles.slice(1).map((article) => {
         return {
             title: article.title,
             url: `/articles/${article.id}`,
