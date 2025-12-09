@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
             description: category.description || `${category.name}に関連する最新ニュースをお届けします。`,
             
             images: [{
-                url: `/api/og?title=${encodeURIComponent(`${category.name} - ニュース一覧`)}&description=${encodeURIComponent(category.description || `${category.name}に関連する最新ニュースをお届けします。`)}`,
+                url: `/api/og/news?title=${encodeURIComponent(`${category.name} - ニュース一覧`)}&author=Liar+News!!`,
                 width: 1200,
                 height: 630,
                 alt: `${category.name} - ニュース一覧`

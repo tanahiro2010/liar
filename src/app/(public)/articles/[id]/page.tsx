@@ -19,7 +19,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         select: {
             title: true,
             excerpt: true,
-            content: true
+            content: true,
+            author: {
+                select: {
+                    name: true
+                }
+            }
         },
     });
     if (!article) {
@@ -36,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title: article.title,
             description: article.content ? article.content.substring(0, 100) : "ニュース記事の詳細ページです。",
             images: [{
-                url: `${process.env.NEXT_PUBLIC_APP_URL}/api/og?title=${encodeURIComponent(article.title)}&content=${encodeURIComponent(article.content ? article.content.substring(0, 100) : "ニュース記事の詳細ページです。")}`,
+                url: `/api/og/news?title=${encodeURIComponent(article.title)}&author=${encodeURIComponent(article.author?.name || "匿名")}`,
                 width: 1200,
                 height: 630,
                 alt: article.title
